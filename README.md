@@ -13,10 +13,10 @@ npm install hypernova-styled-components
 Here's how use use it in your module:
 
 ```js
-import { renderReactWithStyledComponentsStatic } from 'hypernova-styled-components';
+import { renderReactWithStyledComponents } from 'hypernova-styled-components';
 import MyComponent from './src/MyComponent.jsx';
 
-export default renderReactWithStyledComponentsStatic(
+export default renderReactWithStyledComponents(
   'MyComponent.hypernova.js', // this file's name (or really any unique name)
   MyComponent,
 );

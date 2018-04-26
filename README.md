@@ -1,6 +1,6 @@
 # hypernova-styled-components
 
-[Aphrodite](https://github.com/styled-components/styled-components) bindings for [Hypernova](https://github.com/airbnb/hypernova).
+[Styled Components](https://github.com/styled-components/styled-components) bindings for [Hypernova](https://github.com/airbnb/hypernova).
 
 ## Install
 

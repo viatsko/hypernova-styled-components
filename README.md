@@ -1,6 +1,6 @@
 # hypernova-styled-components [![Build Status](https://travis-ci.org/viatsko/hypernova-styled-components.svg?branch=master)](https://travis-ci.org/viatsko/hypernova-styled-components)
 
-[Styled Components](https://github.com/styled-components/styled-components) bindings for [Hypernova](https://github.com/airbnb/hypernova).
+[Styled Components](https://github.com/styled-components/styled-components) 💅 bindings for [Hypernova](https://github.com/airbnb/hypernova).
 
 ## Install
 

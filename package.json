@@ -1,6 +1,6 @@
 {
   "name": "hypernova-styled-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Styled Components bindings for Hypernova",
   "main": "lib/index.js",
   "scripts": {

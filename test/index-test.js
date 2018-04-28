@@ -4,10 +4,7 @@ import sinon from 'sinon';
 import ReactDOM from 'react-dom';
 import ifReact from 'enzyme-adapter-react-helper/build/ifReact';
 import StyledComponent from './components/StyledComponent';
-import {
-  renderReactWithStyledComponents,
-  renderReactWithStyledComponentsStatic,
-} from '../';
+import { renderReactWithStyledComponents, renderReactWithStyledComponentsStatic } from '../';
 
 describe('renderReactWithStyledComponents aphrodite css rendering', () => {
   let originalWindow;
@@ -19,7 +16,10 @@ describe('renderReactWithStyledComponents aphrodite css rendering', () => {
     originalDocument = global.document;
     result = renderReactWithStyledComponents('StyledComponent', StyledComponent)({
       children: ['Zack'],
-      onPress() { console.log('Clicked'); },
+      onPress() {
+        // eslint-disable-next-line no-console
+        console.log('Clicked');
+      },
     });
   });
 
@@ -35,30 +35,33 @@ describe('renderReactWithStyledComponents aphrodite css rendering', () => {
     assert.ok(/Zack/.test(result));
   });
 
-  ifReact('>= 16', it, it.skip)('does not blow up when calling renderReactWithStyledComponents on the client', (done) => {
-    jsdom.env(result, (err, window) => {
-      if (err) {
-        done(err);
-        return;
-      }
+  ifReact('>= 16', it, it.skip)(
+    'does not blow up when calling renderReactWithStyledComponents on the client',
+    (done) => {
+      jsdom.env(result, (err, window) => {
+        if (err) {
+          done(err);
+          return;
+        }
 
-      global.window = window;
-      global.document = window.document;
+        global.window = window;
+        global.document = window.document;
 
-      const hydrateMethod = sinon.spy(ReactDOM, 'hydrate');
+        const hydrateMethod = sinon.spy(ReactDOM, 'hydrate');
 
-      renderReactWithStyledComponents('StyledComponent', StyledComponent);
+        renderReactWithStyledComponents('StyledComponent', StyledComponent);
 
-      assert(hydrateMethod.calledOnce);
+        assert(hydrateMethod.calledOnce);
 
-      delete global.window;
-      delete global.document;
+        delete global.window;
+        delete global.document;
 
-      hydrateMethod.restore();
+        hydrateMethod.restore();
 
-      done();
-    });
-  });
+        done();
+      });
+    },
+  );
 
   it('does not blow up when calling renderReactWithStyledComponents on the client (render method)', (done) => {
     jsdom.env(result, (err, window) => {
@@ -99,10 +102,7 @@ describe('renderReactWithStyledComponentsStatic static styled components css ren
   beforeEach(() => {
     originalWindow = global.window;
     originalDocument = global.document;
-    result = renderReactWithStyledComponentsStatic(
-      'StyledComponent',
-      StyledComponent,
-    )({
+    result = renderReactWithStyledComponentsStatic('StyledComponent', StyledComponent)({
       children: ['Steven'],
       onPress() {},
     });
@@ -133,10 +133,7 @@ describe('renderReactWithStyledComponentsStatic static styled components css ren
         global.window = window;
         global.document = window.document;
 
-        assert.isUndefined(renderReactWithStyledComponentsStatic(
-          'StyledComponent',
-          StyledComponent,
-        ));
+        assert.isUndefined(renderReactWithStyledComponentsStatic('StyledComponent', StyledComponent));
 
         done();
       });

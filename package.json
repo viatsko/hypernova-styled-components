@@ -15,7 +15,8 @@
     "precoverage": "npm run build",
     "coverage": "babel-node \"$(which istanbul)\" cover \"$(which _mocha)\" -- -R tap test/*-test.js",
     "pretest:quick": "npm run build",
-    "test:quick": "babel-node \"$(which _mocha)\" -R tap test/*-test.js"
+    "test:quick": "babel-node \"$(which _mocha)\" -R tap test/*-test.js",
+    "format": "prettier-eslint --write \"src/*.js\" \"test/*.js\" \"src/**/*.jsx\""
   },
   "repository": {
     "type": "git",
@@ -67,6 +68,8 @@
     "istanbul": "^0.4.5",
     "jsdom": "^11.9.0",
     "mocha": "^4.0.1",
+    "prettier": "^1.12.1",
+    "prettier-eslint-cli": "^4.7.1",
     "prop-types": "^15.6.0",
     "react": "^15 || ^16",
     "react-dom": "^15 || ^16",

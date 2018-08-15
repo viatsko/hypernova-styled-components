@@ -10,7 +10,7 @@ export const renderReactWithStyledComponents = (name, component) =>
       return (props) => {
         const sheet = new ServerStyleSheet();
         const element = React.createElement(component, props);
-        const html = ReactDOMServer.renderToStaticMarkup(element);
+        const html = ReactDOMServer.renderToString(element);
         const css = sheet.getStyleTags();
         const markup = serialize(name, html, props);
         return `${css}\n${markup}`;
